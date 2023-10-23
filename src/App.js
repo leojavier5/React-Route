@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes, Link } from "react-router-dom";
+
+const Inicio = () => {
+  return <h1>Inicio</h1>;
+};
+
+const Pagina = () => <h1>Página</h1>;
+
+const Tienda = () => <h1>Tienda</h1>;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header style={{ backgroundColor: "blue" }}>
+        <div className="App">holi cohorte</div>
+        <ul>
+          <li>
+            <Link to="/">Inicio</Link>
+          </li>
+          <li>
+            <Link to="/pagina">Página</Link>
+          </li>
+          <li>
+            <Link to="/tienda">Tienda</Link>
+          </li>
+        </ul>
       </header>
-    </div>
+
+      <Routes>
+        <Route path="/" element={<Inicio />} />
+        <Route path="/pagina" element={<Pagina />} />
+        <Route path="/tienda" element={<Tienda />} />
+      </Routes>
+    </>
   );
 }
 
